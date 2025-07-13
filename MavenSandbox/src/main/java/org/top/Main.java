@@ -1,0 +1,46 @@
+package org.top;
+
+import org.top.example.Point;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Point p1 = new Point("P1", 1.5, 3);
+        Point p2 = new Point("P2", 3, -2);
+        // Point p3 = p1.sum(p2);
+        // Point p3 = Point.sum(p1, p2);
+        // p1.add(p2);
+
+        // System.out.println("p1: " + p1);
+        // System.out.println("p2: " + p2);
+        // System.out.println("sum: " + p1);
+
+        Point p3 = p1.sub(p2);
+        System.out.println("sub: " + p3);
+
+        Point p4 = Point.mult(p1, p2);
+        System.out.println("mult: " + p4);
+
+        Point p5 = p4.change();
+        System.out.println("change: " + p5);
+
+        p2.devide(p1);
+        System.out.println("dev: " + p2);
+
+        // ЗАДАНИЕ:
+        // 1) скачать проект, распаковать, открыть в IDE
+        // 2) запустить, проверить что работает
+        // 3) в класс Point добавить методы для:
+        //      - вычитания двух точек
+        //      - умножения двух точек
+        //      - измеения знака координат
+        //      - деления двух точек
+
+        // Сделать методы по аналогии с примерами сложения
+        // Каждую операцию сделать одним из трех указанных способов
+        // Причем в совокупности необходимо реализовать все 3 способа
+        // Протестировать работу реализованных методов
+        // Алгоритм выполнения самих операций реализовывать на свое усмотрение - т.е. самостоятельно
+        // определить что такое вычитание, умножение и деление точек
+    }
+}
