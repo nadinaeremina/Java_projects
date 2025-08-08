@@ -1,5 +1,9 @@
 package org.top.figures;
 
+// так имплементируем интерфейс, ели передаем имплементацию дальше по цепочке
+// то обьявляем класс абстрактным, иначе обязаны реализовать в этом классе
+// public class Rectangle extends Figure implements Printable { }
+
 public class Rectangle extends Figure {
     private double a;
     private double b;
