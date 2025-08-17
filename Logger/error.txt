@@ -1,0 +1,2 @@
+ERROR: Some error
+ERROR: Some error2
