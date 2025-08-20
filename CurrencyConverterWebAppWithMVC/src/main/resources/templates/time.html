@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Example Time Page</title>
+</head>
+<body>
+    <h1>Example Time Page</h1>
+
+    <p>Now time is [[${nowTime}]]</p>
+
+    <!--Thymeleaf имеет встроенные операторы, теги, атрибуты, например:-->
+    <!--<span th:text="${nowTime}"></span>-->
+    <!--он делает экранирование-->
+
+    <!-- теперь имеем доступ к значению по ключу-->
+    <p><a th:href="@{/}">Go to Index Page</a></p>
+</body>
+</html>

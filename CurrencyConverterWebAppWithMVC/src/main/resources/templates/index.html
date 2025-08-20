@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CurrencyConverterWebApp</title>
+</head>
+<body>
+    <h1>Welcome to Currency Converter web application!</h1>
+
+    <!-- '/time' - указываем не путь к странице, а путь к обработчику-->
+    <p><a th:href="@{/converter}">Go to Converter Page</a></p>
+    <p><a th:href="@{/time}">Go to Example Time Page</a></p>
+</body>
+</html>
