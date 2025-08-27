@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NumberSystemsCalculatorWebApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Calculator</h1>
+
+<!-- форма для перевода одного числа в другое -->
+<form method="post" th:action="@{/calculator}">
+    <!-- from -->
+    <label for="from">From:</label>
+    <select id="from" name="from">
+        <option th:each="system: ${systems}" th:value="${system}" th:selected="${from == system}" >
+            [[${system}]]
+        </option>
+    </select>
+
+    <!-- to -->
+    <label for="to">To:</label>
+    <select id="to" name="to">
+        <option th:each="system: ${systems}" th:value="${system}" th:selected="${to == system}">
+            [[${system}]]
+        </option>
+    </select>
+
+    <!-- value -->
+    <label for="value">Value:</label>
+    <input type="number" id="value" name="value" min="0" step="any" required th:value="${value}" />
+
+    <!-- submit button -->
+    <button>Calculator</button>
+</form>
+
+<p>Result: [[${result}]]</p>
+
+<p><a th:href="@{/}">Go to Index Page</a></p>
+</body>
+</html>

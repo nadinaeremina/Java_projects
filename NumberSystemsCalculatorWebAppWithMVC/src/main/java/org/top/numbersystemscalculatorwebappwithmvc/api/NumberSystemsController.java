@@ -1,10 +1,12 @@
 package org.top.numbersystemscalculatorwebappwithmvc.api;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.top.numbersystemscalculatorwebappwithmvc.calculator.InvalidValueException;
 import org.top.numbersystemscalculatorwebappwithmvc.calculator.NumberSystemsCalculator;
 import org.top.numbersystemscalculatorwebappwithmvc.calculator.UnsupportedNumberSystemsException;
+import org.top.numbersystemscalculatorwebappwithmvc.simple.SimpleNumberSystemsCalculator;
 
 import java.util.List;
 
@@ -14,12 +16,12 @@ public class NumberSystemsController {
 
     private final NumberSystemsCalculator calculator;
 
-    // есть такой @Bean
+    // есть такой @Bean:
     // public NumberSystemsCalculator calculator() {
-    // return new SimpleNumberSystemsCalculator(provider());
+    //      return new SimpleNumberSystemsCalculator(provider());
     // }
 
-    // внедрили сервис через DI
+    // внедрили этот сервис через DI
     public NumberSystemsController(NumberSystemsCalculator calculator) {
         this.calculator = calculator;
     }
@@ -47,10 +49,10 @@ public class NumberSystemsController {
         if (data.to() == null || data.to().isEmpty()) {
             throw new EmptyRequestDataException("to");
         }
-        if (data.value() == null) {
+        if (data.value() == null || data.value().isEmpty()) {
             throw new EmptyRequestDataException("value");
         }
-        double result = calculator.calculate(data.from(), data.to(), data.value());
+        String result = calculator.calculate(data.from(), data.to(), data.value());
         return new ApiMessages.CalculateResultMessage(result, data);
     }
     // ответ

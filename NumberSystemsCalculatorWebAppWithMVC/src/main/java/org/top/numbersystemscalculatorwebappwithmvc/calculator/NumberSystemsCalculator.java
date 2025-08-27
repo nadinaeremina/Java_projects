@@ -6,16 +6,16 @@ import java.util.List;
 public interface NumberSystemsCalculator {
     // supportedNumbersSystems - метод получения поддерживаемых систем исчисления
     // вход: -
-    // выход: массив с кодами систем исчисления
+    // выход: массив с видами систем исчисления
     // исключения: -
     List<String> supportedNumbersSystems();
 
-    // calculate - метод конвертации значения одной валюты в другую
+    // calculate - метод перевода числа из одной системы исчисления в другую
     // вход:
     //  - from - код исходной системы исчисления
     //  - to - код целевой системы исчисления
     //  - value - значение для вычисления
     // выход: вычисленное значение
     // исключения: UnsupportedNumberSystemsException, InvalidValueException
-    double calculate(String from, String to, double value);
+    String calculate(String from, String to, String value);
 }

@@ -8,32 +8,31 @@ import java.util.Map;
 
 // SimpleNumberSystemsCalculator - простой калькулятор систем исчисления
 public class SimpleNumberSystemsCalculator implements NumberSystemsCalculator {
-    private final Map<String, Double> rates;
 
-    public SimpleNumberSystemsCalculator(NumberSystemsProvider provaider) {
-        List<ExchangeNumberSystem> exchangeNumberSystems = provaider.GetNumberSystems("10");
-        rates = new HashMap<>();
-        for (ExchangeNumberSystem exchangeNumberSystem : exchangeNumberSystems) {
-            rates.put(exchangeNumberSystem.code(), exchangeNumberSystem.rate());
-        }
+    private final List<String> systems;
+
+    public SimpleNumberSystemsCalculator(SystemsProvider provaider) {
+        systems = provaider.GetSystems();
     }
 
     @Override
     public List<String> supportedNumbersSystems() {
-        return rates.keySet().stream().toList();
+        return systems;
     }
 
     @Override
-    public double calculate(String from, String to, double value) {
-        if (value < 0) {
+    public String calculate(String from, String to, String value) {
+        if (Integer.parseInt(value) < 0) {
             throw new InvalidValueException(value);
         }
-        if (!rates.containsKey(from)) {
+        if (!systems.contains(from)) {
             throw new UnsupportedNumberSystemsException(from);
         }
-        if (!rates.containsKey(to)) {
+        if (!systems.contains(to)) {
             throw new UnsupportedNumberSystemsException(to);
         }
-        return value * rates.get(from) / rates.get(to);
+        int decimal = Integer.parseInt(value, Integer.parseInt(from));
+        return Integer.toString(decimal, Integer.parseInt(to));
     }
+
 }
