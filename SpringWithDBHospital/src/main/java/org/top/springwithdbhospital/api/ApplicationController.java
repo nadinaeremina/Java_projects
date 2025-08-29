@@ -1,14 +1,10 @@
-package org.top.springwithdbexample.api;
+package org.top.springwithdbhospital.api;
 
-import org.springframework.web.bind.annotation.*;
-import org.top.springwithdbexample.entity.User;
-import org.top.springwithdbexample.repository.UserRepository;
-
-import java.util.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ApplicationController {
-
     public ApplicationController() {}
 
     @GetMapping
