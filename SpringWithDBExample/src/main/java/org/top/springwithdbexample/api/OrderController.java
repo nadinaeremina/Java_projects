@@ -9,7 +9,7 @@ import org.top.springwithdbexample.repository.OrderRepository;
 import java.util.Date;
 import java.util.Optional;
 
-@RestControllerдоктора
+@RestController
 @RequestMapping("order")
 public class OrderController {
     private final OrderRepository orderRepository;
