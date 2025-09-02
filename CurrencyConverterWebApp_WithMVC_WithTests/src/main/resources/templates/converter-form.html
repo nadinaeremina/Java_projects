@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CurrencyConverterWebApp</title>
+</head>
+<body>
+    <h1>Converter</h1>
+
+    <!-- форма для конвертации -->
+    <form method="post" th:action="@{/converter}">
+        <!-- from -->
+        <label for="from">From:</label>
+        <select id="from" name="from">
+            <option th:each="currency: ${currencies}" th:value="${currency}" th:selected="${from == currency}" >
+                [[${currency}]]
+            </option>
+        </select>
+
+        <!-- to -->
+        <label for="to">To:</label>
+        <select id="to" name="to">
+            <option th:each="currency: ${currencies}" th:value="${currency}" th:selected="${to == currency}">
+                [[${currency}]]
+            </option>
+        </select>
+
+        <!-- value -->
+        <label for="value">Value:</label>
+        <input type="number" id="value" name="value" min="0" step="any" required th:value="${value}" />
+
+        <!-- submit button -->
+        <button>Convert</button>
+    </form>
+
+    <p>Result: [[${result}]]</p>
+
+    <p><a th:href="@{/}">Go to Index Page</a></p>
+</body>
+</html>
